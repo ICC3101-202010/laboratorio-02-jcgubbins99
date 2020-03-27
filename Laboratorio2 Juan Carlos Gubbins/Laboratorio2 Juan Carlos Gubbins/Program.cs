@@ -27,11 +27,6 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
 
 
 
-
-
-
-
-
     class Espotifai
     {
 
