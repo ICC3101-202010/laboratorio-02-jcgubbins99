@@ -155,7 +155,7 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
                 Console.WriteLine("Por ende, no ha sido posible  crear la playlist");
                 return false;
             }
-                
+
             for (int i = 0; i < listplay2.Count; i++)
             {
                 if (listplay2[i].NombrePlaylist == nombrePlaylist)
@@ -166,7 +166,12 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
             }
             Playlist listplay3 = new Playlist(nombrePlaylist, listplay);
             listplay2.Add(listplay3);
+            Console.WriteLine("===============================");
             Console.WriteLine("Playlist exitosamente agregada");
+            Console.WriteLine("===============================");
+            Console.WriteLine(listplay3.informationPLN());
+            Console.WriteLine(listplay3.informationPLL());
+            Console.WriteLine("===============================");
             return true;
 
         }

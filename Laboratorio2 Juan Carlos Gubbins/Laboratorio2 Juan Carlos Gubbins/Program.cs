@@ -88,6 +88,7 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
                         Console.WriteLine("Ingrese el nombre de la nueva playlist");
                         np = Console.ReadLine();
                         esp.GenerarPlaylist(crite, valo, np);
+                        Console.WriteLine(" ");
                         break;
                     case "5":
                         Console.WriteLine("===============================================================================");
