@@ -9,11 +9,12 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
 
         public List<Cancion> listacanciones;
         public List<Cancion> listafiltrada;
+        public List<Playlist> listplay2;
 
         public Espotifai()
         {
             listacanciones = new List<Cancion>();
-
+            listplay2 = new List<Playlist>();
         }
         public bool AgregarCancion(Cancion _cancion)
         {
@@ -40,13 +41,14 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
         {
             if (lista.Count == 0)
             {
-                Console.WriteLine("No hay canciones en la lista");
+                Console.WriteLine("No hay canciones agregadas aún");
             }
 
             else
             {
                 for (int i = 0; i < lista.Count; i++)
                 {
+                    Console.WriteLine("============");
                     Console.WriteLine("Canción" + " " + (i + 1));
                     Console.WriteLine("============");
                     Console.WriteLine(lista[i].information());
@@ -138,13 +140,70 @@ namespace Laboratorio2_Juan_Carlos_Gubbins
                     }
                     break;
                 default:
-                    Console.WriteLine("No existe el valor que buscas entre tus canciones");
+                    Console.WriteLine("No existen canciones que cumplan con el criterio y valor seleccionado");
                     break;
             };
 
             return listafiltrada;
 
         }
+        public bool GenerarPlaylist(string criterio, string valorCriterio, string nombrePlaylist)
+        {
+            List<Cancion> listplay = CancionesPorCriterio(criterio, valorCriterio);
+            if (listplay.Count == 0)
+            {
+                Console.WriteLine("Por ende, no ha sido posible  crear la playlist");
+                return false;
+            }
+                
+            for (int i = 0; i < listplay2.Count; i++)
+            {
+                if (listplay2[i].NombrePlaylist == nombrePlaylist)
+                {
+                    Console.WriteLine("La playlist ya existe");
+                    return false;
+                }
+            }
+            Playlist listplay3 = new Playlist(nombrePlaylist, listplay);
+            listplay2.Add(listplay3);
+            Console.WriteLine("Playlist exitosamente agregada");
+            return true;
+
+        }
+        public string VerMisPlaylists()
+        {
+            string stringaux2 = " ";
+            if (listplay2.Count == 0)
+            {
+                return ("No hay playlists en la lista");
+            }
+
+            else
+            {
+                for (int i = 0; i < listplay2.Count; i++)
+                {
+                    stringaux2 += "Playlist" + " " + (i + 1)+"\n";
+                    stringaux2 += "============ \n";
+                    stringaux2 += listplay2[i].informationPLN() + "\n";
+                    stringaux2 += "============ \n";
+                    stringaux2 += listplay2[i].informationPLL() + "\n";
+                    
+
+                }
+                return stringaux2;
+
+
+            }
+        }
+
+
+
+
+
+
 
     }
 }
+
+            
+  
